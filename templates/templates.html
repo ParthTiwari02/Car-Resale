@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<title>Car resale Price</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+<style>
+  body {
+    font-family: "Raleway", Arial, sans-serif
+  }
+
+  .w3-row img {
+    margin-bottom: -8px
+  }
+
+  .photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+</style>
+
+<body>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-content" style="max-width:1500px">
+    <h1 style="text-align:center">Car Resale Value Predictor</h1>
+    <!-- Header -->
+    <header class="w3-container w3-xlarge w3-padding-24">
+      <a href="#about" class="w3-right w3-button w3-white">About</a>
+    </header>
+
+    <!-- End Page Content -->
+  </div>
+
+  <img class="photo"
+    src="https://cdni.autocarindia.com/ExtraImages/20201008062027_Jaguar-XF-2021-rear-2.jpg"
+    alt="" srcset="">
+  <!-- Footer / About Section -->
+  <footer class="w3-light-grey w3-padding-64 w3-center" id="about">
+    <p style="text-align:center">The prices of new cars in the industry is
+      fixed by the manufacturer with some additional costs incurred by
+      the Government in the form of taxes. So, customers buying a new
+      car can be assured of the money they invest to be worthy. But
+      due to the increased price of new cars and the incapability of
+      customers to buy new cars due to the lack of funds, used cars
+      sales are on a global increase . There is a need for a used car
+      price prediction system to effectively determine the worthiness of
+      the car using a variety of features. Even though there are
+      websites that offers this service, their prediction method may not
+      be the best. Besides, different models and systems may
+      contribute on predicting power for a used car’s actual market
+      value. It is important to know their actual market value while both
+      buying and selling.We will use ML algorithms to predict the price
+      of certain car models.</p>
+    <div style="color:blue">
+      <form action="{{ url_for('predict')}}" method="post">
+        <h2>Predictive analysis</h2>
+        <h3>Name</h3>
+        <input name="Name" type="string ">
+        <h3>Year</h3>
+        <input id="first" name="Year" type="number ">
+        <h3>What is the Showroom Price?(In lakhs)</h3><br><input id="second" name="Present_Price" required="required">
+        <h3>How Many Kilometers Drived?</h3><input id="third" name="Kms_Driven" required="required">
+        <h3>How much owners previously had the car(0 or 1 or 3) ?</h3><br><input id="fourth" name="Owner"
+          required="required">
+        <h3>What Is the Fuel type?</h3><br><select name="Fuel_Type_Petrol" id="fuel" required="required">
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel">Diesel</option>
+          <option value="Diesel">CNG</option>
+        </select>
+        <h3>Are you A Dealer or Individual</h3><br><select name="Seller_Type_Individual" id="resea" required="required">
+          <option value="Dealer">Dealer</option>
+          <option value="Individual">Individual</option>
+        </select>
+        <h3>Transmission type</h3><br><select name="Transmission_Mannual" id="research" required="required">
+          <option value="Mannual">Manual Car</option>
+          <option value="Automatic">Automatic Car</option>
+        </select>
+        <br><br><button id="sub" type="submit ">Calculate the Selling Price</button>
+        <br>
+
+
+
+
+      </form>
+
+
+
+      <br><br>
+      <h3>{{ prediction_text }}<h3>
+    </div>
+  </footer>
+
+</body>
+
+</html>
